@@ -132,6 +132,12 @@ cover:
   # When cover is not set, the default cover is displayed (當沒有設置cover時，默認的封面顯示)
   default_cover:
     # - /img/firefly.webp
+  # cover background if no cover image
+  lump:
+    - "#722ed1"
+    - "#1890ff"
+    - "#FF9E80"
+    - "#7cb305"
 
 # Replace Broken Images (替換無法顯示的圖片)
 error_img:

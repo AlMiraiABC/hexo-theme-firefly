@@ -18,6 +18,8 @@ $theme-hr-color = get_theme_color('theme_color.hr_color', $bright-blue)
 $code-foreground = get_theme_color('theme_color.code_foreground', $light-red)
 $code-background = get_theme_color('theme_color.code_background', rgba(27, 31, 35, .05))
 $theme-toc-color = get_theme_color('theme_color.toc_color', $strong-cyan)
+$cover-lump = hexo-config('cover.lump') ? hexo-config('cover.lump') : none
+
 // font
 $dafault-font-family = -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Lato, Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif
 $dafault-code-font = consolas, Menlo, 'PingFang SC', 'Microsoft YaHei', sans-serif
@@ -187,3 +189,10 @@ $tab-button-active-bg = $card-bg
 $tab-to-top-color = #99a9bf
 // Tag Plugins - timeline
 $timeline-default-color = $theme-color
+
+/*
+Random select a color from `cover.lump` list, or else return none if not config.
+*/
+random_lump(){
+  unquote($cover-lump[floor(math(0,'random')*length($cover-lump))])
+}
