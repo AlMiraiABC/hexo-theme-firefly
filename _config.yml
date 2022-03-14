@@ -31,6 +31,17 @@ copy:
     enable: false
     limit_count: 50
 
+# 天气预报
+weather:
+  enable: true # 是否显示天气插件
+  plugin: qweather # weather / qweather
+  weather: # https://cj.weather.com.cn/plugin/simple
+    # 只需粘贴WIDGET部分
+    widget: 'WIDGET = {CONFIG:{"modules":"01234","background":5,"tmpColor":"ACACAC","tmpSize":"14","cityColor":"ACACAC","citySize":"14","aqiSize":"14","weatherIconSize":"20","alertIconSize":"14","padding":"10px 10px 10px 10px","shadow":"0","language":"auto","fixed":"true","vertical":"middle","horizontal":"center","left":0,"top":0,"key":"eHHSl54dDM"}}'
+  qweather: # https://widget.qweather.com/create-simple/
+    # 只需粘贴WIDGET部分
+    widget: 'WIDGET = {"CONFIG": {"modules": "01234","background": "1","tmpColor": "FFFFFF","tmpSize": "16","cityColor": "FFFFFF","citySize": "16","aqiColor": "FFFFFF","aqiSize": "16","weatherIconSize": "24","alertIconSize": "18","padding": "10px 10px 10px 10px","shadow": "1","language": "auto","borderRadius": "30","fixed": "false","vertical": "center","horizontal": "left","key": "3dd3fa00d5c14d7e962478a6e6bad3b3"}}'
+
 # social settings (社交圖標設置)
 # formal:
 #   icon: link || the description
@@ -120,7 +131,7 @@ cover:
   position: both
   # When cover is not set, the default cover is displayed (當沒有設置cover時，默認的封面顯示)
   default_cover:
-    # - https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg
+    # - /img/firefly.webp
 
 # Replace Broken Images (替換無法顯示的圖片)
 error_img:
@@ -130,7 +141,7 @@ error_img:
 # A simple 404 page
 error_404:
   enable: false
-  subtitle: 'Page Not Found'
+  subtitle: "Page Not Found"
   background: /img/404bg.svg
 
 post_meta:
@@ -518,7 +529,7 @@ canvas_fluttering_ribbon:
 # https://github.com/hustcc/canvas-nest.js
 canvas_nest:
   enable: false
-  color: '0,0,255' #color of lines, default: '0,0,0'; RGB values: (R,G,B).(note: use ',' to separate.)
+  color: "0,0,255" #color of lines, default: '0,0,0'; RGB values: (R,G,B).(note: use ',' to separate.)
   opacity: 0.7 # the opacity of line (0~1), default: 0.5.
   zIndex: -1 # z-index property of the background, default: -1.
   count: 99 # the number of lines, default: 99.
@@ -687,9 +698,9 @@ translate:
   # Time delay
   translateDelay: 0
   # The text of the button when the language is Simplified Chinese
-  msgToTraditionalChinese: '繁'
+  msgToTraditionalChinese: "繁"
   # The text of the button when the language is Traditional Chinese
-  msgToSimplifiedChinese: '簡'
+  msgToSimplifiedChinese: "簡"
 
 # Read Mode (閲讀模式)
 readmode: true
@@ -775,8 +786,8 @@ aplayerInject:
 snackbar:
   enable: false
   position: bottom-left
-  bg_light: '#49b1f5' # The background color of Toast Notification in light mode
-  bg_dark: '#1f1f1f' # The background color of Toast Notification in dark mode
+  bg_light: "#49b1f5" # The background color of Toast Notification in light mode
+  bg_dark: "#1f1f1f" # The background color of Toast Notification in dark mode
 
 # https://instant.page/
 # prefetch (預加載)
@@ -912,3 +923,6 @@ CDN:
   prismjs_js:
   prismjs_lineNumber_js:
   prismjs_autoloader:
+
+  # weather
+  weather:

@@ -2,6 +2,9 @@ div
   script(src=url_for(theme.CDN.utils))
   script(src=url_for(theme.CDN.main))
 
+  if theme.weather && theme.weather.enable
+    script(src=url_for(theme.CDN.weather))
+
   if theme.translate.enable
     script(src=url_for(theme.CDN.translate))
 
