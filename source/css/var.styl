@@ -1,17 +1,23 @@
+// get color from config if $themeColorEnable is True and the key has value, or else return d
+// @param key: config key
+// @param d: default color
+get_theme_color(key, d)
+  $themeColorEnable && hexo-config(key) ? convert(hexo-config(key)) : d
+
 // color
 $bright-blue = #49B1F5
 $strong-cyan = #00c4b6
 $light-orange = #FF7242
 $light-red = #F47466
 $themeColorEnable = hexo-config('theme_color') && hexo-config('theme_color.enable')
-$theme-color = $themeColorEnable && hexo-config('theme_color.main') ? convert(hexo-config('theme_color.main')) : $bright-blue
-$theme-paginator-color = $themeColorEnable && hexo-config('theme_color.paginator') ? convert(hexo-config('theme_color.paginator')) : $strong-cyan
-$theme-text-selection-color = $themeColorEnable && hexo-config('theme_color.text_selection') ? convert(hexo-config('theme_color.text_selection')) : $strong-cyan
-$theme-link-color = $themeColorEnable && hexo-config('theme_color.link_color') ? convert(hexo-config('theme_color.link_color')) : $bright-blue
-$theme-hr-color = $themeColorEnable && hexo-config('theme_color.hr_color') ? convert(hexo-config('theme_color.hr_color')) : $bright-blue
-$code-foreground = $themeColorEnable && hexo-config('theme_color.code_foreground') ? convert(hexo-config('theme_color.code_foreground')) : $light-red
-$code-background = $themeColorEnable && hexo-config('theme_color.code_background') ? convert(hexo-config('theme_color.code_background')) : rgba(27, 31, 35, .05)
-$theme-toc-color = $themeColorEnable && hexo-config('theme_color.toc_color') ? convert(hexo-config('theme_color.toc_color')) : $strong-cyan
+$theme-color = get_theme_color('theme_color.main', $bright-blue)
+$theme-paginator-color = get_theme_color('theme_color.paginator', $strong-cyan)
+$theme-text-selection-color = get_theme_color('theme_color.text_selection', $strong-cyan)
+$theme-link-color = get_theme_color('theme_color.link_color', $bright-blue)
+$theme-hr-color = get_theme_color('theme_color.hr_color', $bright-blue)
+$code-foreground = get_theme_color('theme_color.code_foreground', $light-red)
+$code-background = get_theme_color('theme_color.code_background', rgba(27, 31, 35, .05))
+$theme-toc-color = get_theme_color('theme_color.toc_color', $strong-cyan)
 // font
 $dafault-font-family = -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Lato, Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif
 $dafault-code-font = consolas, Menlo, 'PingFang SC', 'Microsoft YaHei', sans-serif
@@ -50,13 +56,13 @@ $text-bg-hover = $theme-color
 // code
 $line-height-code-block = 1.6
 $blockquote-color = #6a737d
-$blockquote-padding-color = $themeColorEnable && hexo-config('theme_color.blockquote_padding_color') ? convert(hexo-config('theme_color.blockquote_padding_color')) : #49B1F5
+$blockquote-padding-color = get_theme_color('theme_color.blockquote_padding_color', #49B1F5)
 $blockquote-background-color = $themeColorEnable && hexo-config('theme_color.blockquote_background_color') ? alpha(convert(hexo-config('theme_color.blockquote_background_color')), .1) : alpha($blockquote-padding-color, .1)
 // page
 $body-bg = #fff
 $a-link-color = #99a9bf
 $sticky-color = $light-orange
-$theme-meta-color = $themeColorEnable && hexo-config('theme_color.meta_color') ? convert(hexo-config('theme_color.meta_color')) : #858585
+$theme-meta-color = get_theme_color('theme_color.meta_color', #858585)
 // sidebar
 $sidebar-background = #f6f8fa
 $sidebar-width = 300px
@@ -67,11 +73,11 @@ $toc-mobile-maxWidth = 380px
 $toc-active-color = #fff
 // Button
 $button-color = #fff
-$button-hover-color = $themeColorEnable && hexo-config('theme_color.button_hover') ? convert(hexo-config('theme_color.button_hover')) : $light-orange
+$button-hover-color = get_theme_color('theme_color.button_hover', $light-orange)
 $button-bg = $theme-color
 $pseudo-hover = $button-hover-color
 // scrollbar
-$scrollbar-color= $themeColorEnable && hexo-config('theme_color.scrollbar_color') ? convert(hexo-config('theme_color.scrollbar_color')) : $theme-color
+$scrollbar-color= get_theme_color('theme_color.scrollbar_color', $theme-color)
 // table
 $table-thead-bg = #99a9bf
 // reward
