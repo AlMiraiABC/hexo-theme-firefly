@@ -10,10 +10,5 @@ window.onload = function() {
                 id = 'he-plugin-simple';
                 break;
         }
-        btf.isJqueryLoad(() => {
-            const w = $(`#${id}`)[0]
-            w.style.position = "relative";
-            w.style.left = "0px";
-        });
     }
 };
