@@ -1,30 +1,30 @@
 {
-    "name": "hexo-theme-firefly",
-    "version": "0.0.1",
-    "description": "A hexo theme based on hexo-theme-butterfly.",
-    "main": "package.json",
-    "scripts": {
-        "publish": "npm publish"
-    },
-    "keywords": [
-        "hexo",
-        "theme",
-        "firefly",
-        "hexo-theme-firefly"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/AlMiraiABC/hexo-theme-firefly.git"
-    },
-    "bugs": {
-        "url": "https://github.com/AlMiraiABC/hexo-theme-firefly/issues",
-        "email": "live.almirai@outlook.com"
-    },
-    "dependencies": {
-        "hexo-renderer-stylus": "^2.0.1",
-        "hexo-renderer-pug": "^3.0.0"
-    },
-    "homepage": "https://firefly.almirai.live",
-    "author": "AlMirai <live.almirai@outlook.com>",
-    "license": "Apache-2.0"
+  "name": "hexo-theme-firefly",
+  "version": "0.0.1",
+  "description": "A hexo theme based on hexo-theme-butterfly.",
+  "main": "package.json",
+  "scripts": {
+    "publish": "npm publish"
+  },
+  "keywords": [
+    "hexo",
+    "theme",
+    "firefly",
+    "hexo-theme-firefly"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlMiraiABC/hexo-theme-firefly.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AlMiraiABC/hexo-theme-firefly/issues",
+    "email": "live.almirai@outlook.com"
+  },
+  "dependencies": {
+    "hexo-renderer-stylus": "^2.0.1",
+    "hexo-renderer-pug": "^3.0.0"
+  },
+  "homepage": "https://firefly.almirai.live",
+  "author": "AlMirai <live.almirai@outlook.com>",
+  "license": "Apache-2.0"
 }
