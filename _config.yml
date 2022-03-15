@@ -411,8 +411,14 @@ crisp:
 footer:
   owner:
     enable: true
-    since: 2020
+    since: 2022
   custom_text:
+  upyun: false # 是否显示又拍云联盟(https://www.upyun.com/league)
+  icp:
+    enable: true
+    text: # ICP备案号
+    url: https://beian.miit.gov.cn/
+    icon: /img/icp.png
   copyright: true # Copyright of theme and framework
 
 # Analysis

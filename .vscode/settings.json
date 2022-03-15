@@ -2,6 +2,7 @@
     "conventionalCommits.scopes": [
         "head",
         "style",
-        "post"
+        "post",
+        "footer"
     ]
 }
