@@ -1,6 +1,7 @@
 {
     "conventionalCommits.scopes": [
         "head",
-        "style"
+        "style",
+        "post"
     ]
 }
