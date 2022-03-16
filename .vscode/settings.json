@@ -3,6 +3,7 @@
         "head",
         "style",
         "post",
-        "footer"
+        "footer",
+        "config"
     ]
 }

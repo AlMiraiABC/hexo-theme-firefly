@@ -5,7 +5,7 @@ mixin postUI(posts)
         let link = article.link || article.path
         let title = article.title || _p('no_title')
         const position = theme.cover.position
-        let leftOrRight = position === 'both' 
+        let leftOrRight = position === 'both'
           ? index%2 == 0 ? 'left' : 'right'
           : position === 'left' ? 'left' : 'right'
         let post_cover = article.cover
@@ -57,7 +57,7 @@ mixin postUI(posts)
                 a(href=url_for(item.path)).article-meta__tags #[=item.name]
                 if (index < article.tags.data.length - 1)
                   span.article-meta-link #[='•']
-          
+
           mixin countBlockInIndex
             - needLoadCountJs = true
             span.article-meta
@@ -66,7 +66,7 @@ mixin postUI(posts)
               if block
                 block
               span.article-meta-label= ' ' + _p('card_post_count')
-          
+
           if theme.comments.card_post_count
             case theme.comments.use[0]
               when 'Disqus'
@@ -90,22 +90,22 @@ mixin postUI(posts)
                     span.fb-comments-count(data-href=urlNoIndex(article.permalink))
 
         //- Display the article introduction on homepage
-        case theme.index_post_content.method
+        case theme.index_post_content.mode
           when false
             - break
-          when 1
+          when description
             .content!= article.description
-          when 2
+          when both
             if article.description
               .content!= article.description
             else
               - const content = strip_html(article.content)
-              - let expert = content.substring(0, theme.index_post_content.length) 
+              - let expert = content.substring(0, theme.index_post_content.length)
               - content.length > theme.index_post_content.length ? expert += ' ...' : ''
               .content!= expert
           default
             - const content = strip_html(article.content)
-            - let expert = content.substring(0, theme.index_post_content.length) 
+            - let expert = content.substring(0, theme.index_post_content.length)
             - content.length > theme.index_post_content.length ? expert += ' ...' : ''
             .content!= expert
 

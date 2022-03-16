@@ -1,0 +1,701 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/product.schema.json",
+  "title": "_config.firefly.yml",
+  "description": "JSON schema for hexo-theme-firefly",
+  "type": "object",
+  "definitions": {},
+  "properties": {
+    "menu": {
+      "description": "Navbar menus",
+      "type": [
+        "object",
+        "null"
+      ],
+      "$comment": "patternProperties regex pattern not work",
+      "patternProperties": {
+        "(\\s*\\S+)+\\s*": {
+          "type": [
+            "string",
+            "object"
+          ]
+        }
+      },
+      "examples": [
+        {
+          "menu": {
+            "Home": "/ || fas fa-home",
+            "Archives": "/archives/ || fas fa-archive",
+            "Tags": "/tags/ || fas fa-tags",
+            "Categories": "/categories/ || fas fa-folder-open",
+            "List||fas fa-list": {
+              "Music": "/music/ || fas fa-music",
+              "Movie": "/movies/ || fas fa-video"
+            },
+            "Link": "/link/ || fas fa-link",
+            "About": "/about/ || fas fa-heart"
+          }
+        }
+      ],
+      "default": null
+    },
+    "highlight_theme": {
+      "description": "Code highlight style",
+      "enum": [
+        "darker",
+        "plae night",
+        "light",
+        "ocean",
+        "mac",
+        "mac light",
+        false
+      ],
+      "default": "light"
+    },
+    "highlight_copy": {
+      "description": "Determine whether show copy menu on code block",
+      "type": "boolean",
+      "default": true
+    },
+    "highlight_lang": {
+      "description": "Determine whether show the code language",
+      "type": "boolean",
+      "default": true
+    },
+    "highlight_shrink": {
+      "description": "Determine whether shrink the code block or expand.\ntrue: shrink;\nfalse: expand;\nnull: expand and hide this button.",
+      "default": false,
+      "enum": [
+        true,
+        false,
+        null
+      ]
+    },
+    "highlight_height_limit": {
+      "description": "Set code block height(px), set to false if unlimit.",
+      "type": [
+        "number",
+        "boolean"
+      ],
+      "default": false,
+      "minimum": 0
+    },
+    "code_word_wrap": {
+      "description": "Wrap the line if too long in code block.",
+      "type": "boolean",
+      "default": false
+    },
+    "copy": {
+      "description": "Settings when coping.",
+      "type": "object",
+      "properties": {
+        "enable": {
+          "description": "Determine whether enable copy words.",
+          "type": "boolean",
+          "default": true
+        },
+        "copyright": {
+          "description": "Copyright settings when copy.",
+          "type": "object",
+          "properties": {
+            "enable": {
+              "description": "Determine whether add copyright infos after copied content.",
+              "type": "boolean",
+              "default": false
+            },
+            "limit_count": {
+              "description": "Max allowed length of copied content.",
+              "type": "number",
+              "default": 50,
+              "minimum": 0
+            }
+          }
+        }
+      }
+    },
+    "weather": {
+      "description": "Weather widget settings",
+      "type": "object",
+      "if": {
+        "properties": {
+          "enable": {
+            "const": true
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "plugin"
+        ],
+        "if": {
+          "properties": {
+            "plugin": {
+              "const": "weather"
+            }
+          }
+        },
+        "then": {
+          "required": [
+            "weather"
+          ]
+        },
+        "else": {
+          "if": {
+            "properties": {
+              "plugin": {
+                "const": "qweather"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "qweather"
+            ]
+          }
+        }
+      },
+      "properties": {
+        "enable": {
+          "description": "Determine whether show weather widget in navbar.",
+          "type": "boolean",
+          "default": true
+        },
+        "plugin": {
+          "description": "Set weather widget type.",
+          "enum": [
+            "weather",
+            "qweather"
+          ],
+          "default": "qweather"
+        },
+        "weather": {
+          "description": "Weather widget(weather) settings.\nsee more: https://cj.weather.com.cn/plugin/simple",
+          "type": "object",
+          "properties": {
+            "widget": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "WIDGET generated."
+            }
+          },
+          "required": [
+            "widget"
+          ]
+        },
+        "qweather": {
+          "description": "Weather widget(qweather) settings.\n see more: https://widget.qweather.com/create-simple/",
+          "type": "object",
+          "properties": {
+            "widget": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "WIDGET generated."
+            }
+          },
+          "required": [
+            "widget"
+          ]
+        }
+      }
+    },
+    "social": {
+      "description": "Social network accounts.\n{icon}:{link}||{description}",
+      "type": [
+        "object",
+        "null"
+      ],
+      "$comment": "patternProperties regex pattern not work",
+      "patternProperties": {
+        "(\\s*\\S+)+\\s": {
+          "type": "string",
+          "pattern": ".*( *|| *.*)?"
+        }
+      },
+      "examples": [
+        "fab fa-github: https://github.com/xxxxx || Github",
+        "fas fa-envelope: mailto:xxxxxx@gmail.com || Email"
+      ],
+      "default": null
+    },
+    "algolia_search": {
+      "description": "Algolia settings.",
+      "type": "object",
+      "properties": {
+        "enable": {
+          "description": "Determine whether using algolia search.",
+          "type": "boolean",
+          "default": false
+        },
+        "hits": {
+          "description": "Search options.",
+          "type": "object",
+          "properties": {
+            "per_page": {
+              "description": "Result count per page.",
+              "type": "number",
+              "default": 6,
+              "minimum": 1
+            }
+          }
+        }
+      }
+    },
+    "local_search": {
+      "description": "Local search settings.",
+      "type": "object",
+      "properties": {
+        "enable": {
+          "type": "boolean",
+          "default": false,
+          "description": "Determine whether using local search."
+        }
+      }
+    },
+    "mathjax": {
+      "description": "MathJax settings.",
+      "type": "object",
+      "properties": {
+        "enable": {
+          "description": "Determine whether using mathjax to render formulas.",
+          "type": "boolean",
+          "default": false
+        },
+        "per_page": {
+          "description": "Determine whether load mathjax script in each post.\n or load it if add <c>mathjax: true</c> in post front-matter",
+          "default": false,
+          "type": "boolean"
+        }
+      }
+    },
+    "katex": {
+      "description": "KaTeX settings.",
+      "type": "object",
+      "properties": {
+        "enable": {
+          "description": "Determine whether using katex to render formulas.",
+          "type": "boolean",
+          "default": false
+        },
+        "per_page": {
+          "description": "Determine whether load katex script in each post.\n or load it if add <c>katex: true</c> in post front-matter",
+          "default": false,
+          "type": "boolean"
+        },
+        "hide_scrollbar": {
+          "description": "Determine whether hide scroll bar in formal blocks.",
+          "type": "boolean",
+          "default": true
+        }
+      }
+    },
+    "facivon": {
+      "description": "Favicon URL for website.",
+      "type": "string",
+      "default": "/img/favicon.png"
+    },
+    "avatar": {
+      "description": "Author's avatar settings.",
+      "type": "object",
+      "properties": {
+        "img": {
+          "description": "Author's avatar image URL.",
+          "type": "string",
+          "default": "/img/firefly.webp"
+        },
+        "effect": {
+          "description": "Determine whether show animation on avatar iamge.",
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "disable_top_img": {
+      "description": "Determine whether disable all banner iamges.",
+      "type": "boolean",
+      "default": false
+    },
+    "index_img": {
+      "description": "Home page banner image URL.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "default_top_img": {
+      "description": "Default page banner image if the page not set it.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "archive_img": {
+      "description": "Archive page banner image URL.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "tag_img": {
+      "description": "Tag page banner image URL.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "tag_per_img": {
+      "description": "Tag page banner iamge URL.",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "patternProperties": {
+          ".*": {
+            "type": "string",
+            "description": "Image URL for this tag."
+          }
+        }
+      }
+    },
+    "category_img": {
+      "description": "Category page banner image URL.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "category_per_img": {
+      "description": "Category page banner iamge URL.",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "patternProperties": {
+          ".*": {
+            "type": "string",
+            "description": "Image URL for this category."
+          }
+        }
+      }
+    },
+    "cover": {
+      "description": "Post cover settings.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "index_enable": {
+          "description": "Determine whether show the post cover.",
+          "type": "boolean",
+          "default": true
+        },
+        "aside_enable": {
+          "description": "Determine whether show the post cover in aside frame.",
+          "type": "boolean",
+          "default": true
+        },
+        "archives_enable": {
+          "description": "Determine whether show the post cover in archive page.",
+          "type": "boolean",
+          "default": true
+        },
+        "position": {
+          "description": "Post cover position in homepage.",
+          "type": "string",
+          "enum": [
+            "left",
+            "right",
+            "both"
+          ],
+          "default": "both"
+        },
+        "default_cover": {
+          "description": "Post default cover image URL if the post not set it.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "default": null,
+          "items": {
+            "type": "string",
+            "uniqueItems": true
+          }
+        },
+        "lump": {
+          "description": "Post cover background color if there is no cover image.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "default": [
+            "#722ed1",
+            "#1890ff",
+            "#FF9E80",
+            "#7cb305"
+          ],
+          "items": {
+            "type": "string",
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    "error_img": {
+      "description": "Set a image to replace the broken images.",
+      "type": "object",
+      "properties": {
+        "flink": {
+          "description": "A image URL to replace the broken image in friend link avatar.",
+          "type": "string"
+        },
+        "post_page": {
+          "description": "A image URL to replace the broken image in post and page.",
+          "type": "string"
+        }
+      }
+    },
+    "error_404": {
+      "description": "Settings for the simple 404 page.",
+      "type": "object",
+      "properties": {
+        "enable": {
+          "description": "Determine whether show the simple 404 page when occured an 404 status.\nIt is not work on local machine.",
+          "type": "boolean",
+          "default": false
+        },
+        "subtitle": {
+          "description": "Set a tip in this simple 404 page.",
+          "type": "string",
+          "default": "Page Not Found"
+        },
+        "background": {
+          "description": "Set a background image URL for this simple 404 page.",
+          "type": "string",
+          "default": "/img/404bg.svg"
+        }
+      }
+    },
+    "post_meta": {
+      "description": "Meta info settings for post and page.",
+      "type": "object",
+      "properties": {
+        "page": {
+          "description": "Meta info settings for page.",
+          "type": "object",
+          "properties": {
+            "date_type": {
+              "description": "Page data source.",
+              "type": "string",
+              "enum": [
+                "created",
+                "updated",
+                "both"
+              ]
+            },
+            "date_format": {
+              "description": "Page data format.\ndata: today;\nrelative: relative data to today.",
+              "type": "string",
+              "enum": [
+                "date",
+                "relative"
+              ]
+            },
+            "categories": {
+              "description": "Determine whether show categories the page belongs.",
+              "type": "boolean",
+              "default": true
+            },
+            "tags": {
+              "description": "Determine whether show tags the page has",
+              "type": "boolean",
+              "default": false
+            },
+            "label": {
+              "description": "Determine whether show description label for this page",
+              "type": "boolean",
+              "default": true
+            }
+          }
+        },
+        "post": {
+          "description": "Meta info settings for post.",
+          "type": "object",
+          "properties": {
+            "date_type": {
+              "description": "Post data source.",
+              "type": "string",
+              "enum": [
+                "created",
+                "updated",
+                "both"
+              ]
+            },
+            "date_format": {
+              "description": "Post data format.\ndata: today;\nrelative: relative data to today.",
+              "type": "string",
+              "enum": [
+                "date",
+                "relative"
+              ]
+            },
+            "categories": {
+              "description": "Determine whether show categories the post belongs.",
+              "type": "boolean",
+              "default": true
+            },
+            "tags": {
+              "description": "Determine whether show tags the post has",
+              "type": "boolean",
+              "default": false
+            },
+            "label": {
+              "description": "Determine whether show description label for this post",
+              "type": "boolean",
+              "default": true
+            }
+          }
+        }
+      }
+    },
+    "wordcount": {
+      "description": "Post wordcount settings.",
+      "type": "object",
+      "properties": {
+        "enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "The main switcher for wordcount."
+        },
+        "post_wordcount": {
+          "type": "boolean",
+          "default": true,
+          "description": "Determine whether show wordcount in post."
+        },
+        "min2read": {
+          "type": "boolean",
+          "default": true,
+          "description": "Determine whether show the tip of reading minutes for this post."
+        },
+        "total_wordcount": {
+          "type": "boolean",
+          "default": true,
+          "description": "Determine whether show the total wordcount for the website in home page webinfo aside card."
+        }
+      }
+    },
+    "index_post_content": {
+      "description": "Home page post card content settings.",
+      "type": "object",
+      "if": {
+        "not": {
+          "properties": {
+            "mode": {
+              "const": "excerpt"
+            }
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "length"
+        ]
+      },
+      "properties": {
+        "mode": {
+          "description": "Mode to get post abstract in home page.\ndescription: using post description;\nboth: using discription if exists or else excerpt it.\nexcerpt: excerpt this post first length content.",
+          "type": "string",
+          "enum": [
+            "both",
+            "description",
+            "excerpt"
+          ],
+          "default": "excerpt"
+        },
+        "length": {
+          "type": "number",
+          "default": 500,
+          "minimum": 0
+        }
+      }
+    },
+    "anchor": {
+      "description": "Determine whether auto update URL to header id when scroll in post.",
+      "type": "boolean",
+      "default": false
+    },
+    "toc": {
+      "description": "Table of Contents(TOC) settings.",
+      "type": "object",
+      "properties": {
+        "post": {
+          "description": "Determine whether show post TOC.",
+          "type": "boolean",
+          "default": true
+        },
+        "page": {
+          "description": "Determine whether show page TOC.",
+          "type": "boolean",
+          "default": false
+        },
+        "number": {
+          "description": "Determine whether show sequences number of TOC.",
+          "type": "boolean",
+          "default": true
+        },
+        "expand": {
+          "description": "Determine whether expand TOC automatically.",
+          "type": "boolean",
+          "default": false
+        },
+        "style": {
+          "description": "TOC style for post.\nNOTE: this prop is only effective in post.",
+          "type": [
+            "string",
+            "null",
+            "boolean"
+          ],
+          "enum": [
+            "simple",
+            false,
+            null
+          ],
+          "default": null
+        }
+      }
+    },
+    "post_copyright": {
+      "description": "Post copyright settings.",
+      "type": "object",
+      "properties": {
+        "enable": {
+          "description": "Determine whether show copyright block in post.",
+          "type": "boolean",
+          "default": true
+        },
+        "decode": {
+          "description": "Determine whether decode the license url or this post url in copyright content.",
+          "type": "boolean",
+          "default": false
+        },
+        "license": {
+          "description": "Post license",
+          "type": "string",
+          "default": "CC BY-NC-SA 4.0"
+        },
+        "license_url": {
+          "description": "URL for post license.",
+          "type": "string",
+          "default": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+        }
+      }
+    }
+  }
+}
