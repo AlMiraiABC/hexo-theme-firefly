@@ -1,7 +1,5 @@
 # yaml-language-server: $schema=./schema/firefly-schema.json
-
 ---
-
 # Main menu navigation (導航目錄)
 # see https://butterfly.js.org/posts/4aa8abbe/#導航菜單
 # --------------------------------------
@@ -214,13 +212,22 @@ addThis:
 # https://github.com/overtrue/share.js
 sharejs:
   enable: true
-  sites: [facebook,twitter,wechat,weibo,qq]
+  sites: [facebook, twitter, wechat, weibo, qq]
 
 # AddToAny
 # https://www.addtoany.com/
 addtoany:
   enable: false
-  item: facebook,twitter,wechat,sina_weibo,facebook_messenger,email,copy_link
+  sites:
+    [
+      facebook,
+      twitter,
+      wechat,
+      sina_weibo,
+      facebook_messenger,
+      email,
+      copy_link,
+    ]
 
 # Comments System
 # --------------------------------------
@@ -798,7 +805,7 @@ css_prefix: true
 # 插入代码到头部 </head> 之前 和 底部 </body> 之前
 inject:
   head:
-    # - <link rel="stylesheet" href="/xxx.css">
+  # - <link rel="stylesheet" href="/xxx.css">
   bottom:
     # - <script src="xxxx"></script>
 
