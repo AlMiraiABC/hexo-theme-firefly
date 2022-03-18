@@ -30,16 +30,120 @@
       "oneOf": [
         {
           "properties": {
-            "use":{"const":"chatra"},
-            "chatra":{
-              "type":"object",
+            "use": {
+              "const": "chatra"
+            },
+            "chatra": {
+              "description": "Chatra chat plugin.\nsee more: https://chatra.io/",
+              "type": "object",
               "properties": {
-                "id":{}
+                "id": {
+                  "type": "string"
+                }
               },
-              "required": ["id"]
+              "required": [
+                "id"
+              ]
             }
           },
-          "required": ["chatra"]
+          "required": [
+            "chatra"
+          ]
+        },
+        {
+          "properties": {
+            "use": {
+              "const": "tidio"
+            },
+            "tidio": {
+              "description": "Tidio chat plugin.\nsee more: https://www.tidio.com/",
+              "type": "object",
+              "properties": {
+                "public_key": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "public_key"
+              ]
+            }
+          },
+          "required": [
+            "tidio"
+          ]
+        },
+        {
+          "properties": {
+            "use": {
+              "const": "daovoice"
+            },
+            "daovoice": {
+              "description": "DaoVoice chat plugin.\nsee more: http://guide.daocloud.io/daovoice",
+              "type": "object",
+              "properties": {
+                "app_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "app_id"
+              ]
+            }
+          },
+          "required": [
+            "daovoice"
+          ]
+        },
+        {
+          "properties": {
+            "use": {
+              "const": "gitter"
+            },
+            "gitter": {
+              "type": "object",
+              "description": "Gitter chat plugin.\nsee more: https://gitter.im/",
+              "properties": {
+                "room": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "room"
+              ]
+            }
+          },
+          "required": [
+            "gitter"
+          ]
+        },
+        {
+          "properties": {
+            "use": {
+              "const": "crisp"
+            },
+            "crisp": {
+              "type": "object",
+              "description": "Crisp chat plugin.\nsee more: https://crisp.chat/",
+              "properties": {
+                "website_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "website_id"
+              ]
+            }
+          },
+          "required": [
+            "crisp"
+          ]
+        },
+        {
+          "properties": {
+            "use":{
+              "const":null
+            }
+          }
         }
       ]
     }

@@ -320,41 +320,20 @@ giscus:
     dark: dark
   option:
 
-# Chat Services
-# --------------------------------------
-
-# Chat Button [recommend]
-# It will create a button in the bottom right corner of website, and hide the origin button
-
 chat:
   button: false
   auto_hide: false
   use:
-
-# chatra
-# https://chatra.io/
-chatra:
-  id:
-
-# tidio
-# https://www.tidio.com/
-tidio:
-  public_key:
-
-# daovoice
-# http://daovoice.io/
-daovoice:
-  app_id:
-
-# gitter
-# https://gitter.im/
-gitter:
-  room:
-
-# crisp
-# https://crisp.chat/en/
-crisp:
-  website_id:
+  chatra:
+    id:
+  tidio:
+    public_key:
+  daovoice:
+    app_id:
+  gitter:
+    room:
+  crisp:
+    website_id:
 
 # Footer Settings
 # --------------------------------------

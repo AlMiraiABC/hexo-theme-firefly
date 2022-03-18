@@ -9,7 +9,7 @@ if theme.chat.button
 
       function initGitter () {
         chat = new GitterChat({
-          room: '#{theme.gitter.room}',
+          room: '#{theme.chat.gitter.room}',
           activationElement: '#chat_btn'
         });
       }
@@ -27,7 +27,7 @@ if theme.chat.button
 else
   script.
     ((window.gitter = {}).chat = {}).options = {
-      room: '#{theme.gitter.room}',
+      room: '#{theme.chat.gitter.room}',
     };
 
     if (!{theme.chat.auto_hide}) {
