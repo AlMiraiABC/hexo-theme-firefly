@@ -204,30 +204,21 @@ noticeOutdate:
 
 share:
   use: sharejs
-
-# AddThis
-# https://www.addthis.com/
-addThis:
-  pubid:
-
-# Share.js
-# https://github.com/overtrue/share.js
-sharejs:
-  sites: [facebook, twitter, wechat, weibo, qq]
-
-# AddToAny
-# https://www.addtoany.com/
-addtoany:
-  sites:
-    [
-      facebook,
-      twitter,
-      wechat,
-      sina_weibo,
-      facebook_messenger,
-      email,
-      copy_link,
-    ]
+  addThis:
+    pubid:
+  sharejs:
+    sites: [facebook, twitter, wechat, weibo, qq]
+  addtoany:
+    sites:
+      [
+        facebook,
+        twitter,
+        wechat,
+        sina_weibo,
+        facebook_messenger,
+        email,
+        copy_link,
+      ]
 
 # Comments System
 # --------------------------------------

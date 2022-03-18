@@ -1,4 +1,4 @@
-- const sites = theme.sharejs.sites ? theme.sharejs.sites.join(',') : ''
+- const sites = theme.share.sharejs.sites ? theme.share.sharejs.sites.join(',') : ''
 .social-share(data-image=url_for(page.cover|| theme.avatar.img) data-sites=sites)
 link(rel='stylesheet' href=url_for(theme.CDN.sharejs_css) media="print" onload="this.media='all'")
 script(src=url_for(theme.CDN.sharejs) defer)

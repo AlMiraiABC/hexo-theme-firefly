@@ -24,17 +24,24 @@
           "type": [
             "string",
             "null"
-          ],
-          "enum": [
-            "chatra",
-            "tidio",
-            "daovoice",
-            "gitter",
-            "crisp",
-            null
           ]
         }
-      }
+      },
+      "oneOf": [
+        {
+          "properties": {
+            "use":{"const":"chatra"},
+            "chatra":{
+              "type":"object",
+              "properties": {
+                "id":{}
+              },
+              "required": ["id"]
+            }
+          },
+          "required": ["chatra"]
+        }
+      ]
     }
   }
 }
