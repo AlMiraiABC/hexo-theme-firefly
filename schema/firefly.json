@@ -4,6 +4,10 @@
   "title": "_config.firefly.yml",
   "description": "JSON schema for hexo-theme-firefly",
   "type": "object",
+  "allOf": [
+    {"$ref": "./share.json"},
+    {"$ref": "./comment.json"}
+  ],
   "definitions": {},
   "properties": {
     "menu": {
@@ -694,6 +698,142 @@
           "description": "URL for post license.",
           "type": "string",
           "default": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+        }
+      }
+    },
+    "reward": {
+      "description": "Sponsors or rewards settings.",
+      "type": "object",
+      "properties": {
+        "enable": {
+          "description": "Determinw whether show reward button.",
+          "type": "boolean",
+          "default": false
+        },
+        "QR_code": {
+          "description": "Reward ways.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "object",
+            "properties": {
+              "img": {
+                "description": "Image URL to reward. A QR code generally.",
+                "type": "string",
+                "examples": [
+                  "/path/to/alipay/receiving_code"
+                ]
+              },
+              "link": {
+                "description": "Image href to reward. A payment link generally.",
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "examples": [
+                  "/path/to/payment/link"
+                ]
+              },
+              "text": {
+                "type": "string",
+                "description": "Image description.",
+                "examples": [
+                  "alipay",
+                  "wechat"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "related_post": {
+      "description": "Post recommend settings.",
+      "type": "object",
+      "properties": {
+        "enable": {
+          "description": "Determine whether show related posts under post.",
+          "type": "boolean",
+          "default": true
+        },
+        "limit": {
+          "description": "Count number of related posts.",
+          "type": "number",
+          "default": 6,
+          "minimum": 0
+        },
+        "date_type": {
+          "description": "Date mode related post shown.",
+          "type": "string",
+          "enum": [
+            "created",
+            "updated"
+          ],
+          "default": "created"
+        }
+      }
+    },
+    "photofigcaption": {
+      "description": "Determine whether show photos and figures description.",
+      "type": "boolean",
+      "default": false
+    },
+    "post_pagination": {
+      "description": "Pagination settings under post.",
+      "type": [
+        "boolean",
+        "number"
+      ],
+      "enum": [
+        1,
+        2,
+        false
+      ],
+      "default": 1
+    },
+    "noticeOutdate": {
+      "description": "Outdated notification settings.",
+      "type": "object",
+      "properties": {
+        "enable": {
+          "description": "Determine whether show outdated notification.",
+          "type": "boolean",
+          "default": false
+        },
+        "style": {
+          "description": "Notification style.",
+          "type": "string",
+          "enum": [
+            "simple",
+            "flat"
+          ],
+          "default": "flat"
+        },
+        "limit_day": {
+          "description": "Expired days",
+          "type": "number",
+          "default": 500
+        },
+        "position": {
+          "description": "Notification position.",
+          "type": "string",
+          "enum": [
+            "top",
+            "bottom"
+          ],
+          "default": "top"
+        },
+        "message_prev": {
+          "description": "Prefix for notification message.",
+          "type": "string",
+          "default": "It has been"
+        },
+        "message_next": {
+          "description": "Suffix for notification message.",
+          "type": "string",
+          "default": "days since the last update, the content of the article may be outdated."
         }
       }
     }
