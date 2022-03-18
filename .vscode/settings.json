@@ -4,6 +4,7 @@
         "style",
         "post",
         "footer",
-        "config"
+        "config",
+        "plugin"
     ]
 }

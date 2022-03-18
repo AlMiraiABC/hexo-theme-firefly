@@ -11,7 +11,7 @@ script.
       if (d.head) d.head.appendChild(s);
   })(document, window, 'Chatra');
 
-  if (!{theme.chat_btn}) {
+  if (!{theme.chat.button}) {
     var chatBtnFn = () => {
       var chatBtn = document.getElementById("chat_btn")
       chatBtn.addEventListener("click", function(){
@@ -20,7 +20,7 @@ script.
     }
     chatBtnFn()
   } else {
-    if (!{theme.chat_hide_show}) {
+    if (!{theme.chat.auto_hide}) {
       function chatBtnHide () {
         Chatra('hide')
       }
@@ -29,5 +29,3 @@ script.
       }
     }
   }
-
-

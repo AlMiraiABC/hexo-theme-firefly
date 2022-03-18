@@ -10,7 +10,7 @@ script.
   })();
   $crisp.push(["safe", true])
 
-  if (!{theme.chat_btn}) {
+  if (!{theme.chat.button}) {
     $crisp.push(["do", "chat:hide"])
     $crisp.push(["on", "chat:closed", function() {
       $crisp.push(["do", "chat:hide"])
@@ -25,7 +25,7 @@ script.
     }
     chatBtnFn()
   } else {
-    if (!{theme.chat_hide_show}) {
+    if (!{theme.chat.auto_hide}) {
       function chatBtnHide () {
         $crisp.push(["do", "chat:hide"])
       }

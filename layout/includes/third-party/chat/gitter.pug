@@ -1,4 +1,4 @@
-if theme.chat_btn
+if theme.chat.button
   script.
     ((window.gitter = {}).chat = {}).options = {
       disableDefaultChat: true,
@@ -30,7 +30,7 @@ else
       room: '#{theme.gitter.room}',
     };
 
-    if (!{theme.chat_hide_show}) {
+    if (!{theme.chat.auto_hide}) {
       function chatBtnHide () {
         document.getElementsByClassName('gitter-open-chat-button')[0].style.display= 'none'
       }
