@@ -84,24 +84,6 @@
           }
         }
       }
-    },
-    "disqus": {
-      "description": "Disqus settings if comments.use is Disqus",
-      "type": "object",
-      "properties": {
-        "shortname": {
-          "description": "Website shortname set on disqus account.",
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "apikey": {}
-      },
-      "required": [
-        "shortname",
-        "apikey"
-      ]
     }
   }
 }

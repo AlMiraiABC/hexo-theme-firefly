@@ -5,32 +5,30 @@
   "description": "Sub JSON schema for hexo-theme-firefly share plugins.",
   "type": "object",
   "properties": {
+    "share": {
+      "description": "Share manage settings.",
+      "type": "object",
+      "properties": {
+        "use": {
+          "description": "Avaliable share plugin.",
+          "type": "string",
+          "enum": [
+            "addThis",
+            "sharejs",
+            "addtoany"
+          ]
+        }
+      }
+    },
     "addThis": {
       "description": "AddThis share plugin.\nsee more: https://www.addthis.com/",
       "type": "object",
       "properties": {
-        "enable": {
-          "type": "boolean",
-          "description": "Determine whether using AddThis",
-          "default": false
-        },
         "pubid": {
           "description": "",
           "type": [
             "string",
             "null"
-          ]
-        },
-        "if": {
-          "properties": {
-            "enable": {
-              "const": true
-            }
-          }
-        },
-        "then": {
-          "required": [
-            "pubid"
           ]
         }
       }
@@ -39,11 +37,6 @@
       "description": "Share.js share plugin.\nsee more: https://github.com/overtrue/share.js",
       "type": "object",
       "properties": {
-        "enable": {
-          "description": "Determine whether using Share.js.",
-          "type": "boolean",
-          "default": true
-        },
         "sites": {
           "description": "Sites shared to.",
           "type": [
@@ -71,11 +64,6 @@
       "description": "AddToAny share plugin.\nsee more: https://www.addtoany.com/",
       "type": "object",
       "properties": {
-        "enable": {
-          "description": "Determine whether using AddToAny.",
-          "type": "boolean",
-          "default": false
-        },
         "sites": {
           "type": [
             "array",

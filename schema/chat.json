@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/product.schema.json",
+  "title": "_config.firefly.yml -chat",
+  "description": "Sub JSON schema for hexo-theme-firefly chat module.",
+  "type": "object",
+  "properties": {
+    "chat": {
+      "description": "Chat module manage settings.",
+      "type": "object",
+      "properties": {
+        "button": {
+          "description": "Determine whether display chat button on right-bottom corner, it will hide the origin set button.",
+          "type": "boolean",
+          "default": false
+        },
+        "auto_hide": {
+          "description": "Determine whether auto hide chat button when scrolling down.",
+          "type": "boolean",
+          "default": false
+        },
+        "use": {
+          "description": "Avaliable chat plugin.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "chatra",
+            "tidio",
+            "daovoice",
+            "gitter",
+            "crisp",
+            null
+          ]
+        }
+      }
+    }
+  }
+}

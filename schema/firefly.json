@@ -6,7 +6,8 @@
   "type": "object",
   "allOf": [
     {"$ref": "./share.json"},
-    {"$ref": "./comment.json"}
+    {"$ref": "./comment.json"},
+    {"$ref": "./chat.json"}
   ],
   "definitions": {},
   "properties": {
