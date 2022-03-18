@@ -83,10 +83,6 @@
     })
   }
 
-  let weather = 'undefined';
-  if(theme.weather && theme.weather.enable){
-    weather = JSON.stringify(theme.weather)
-  }
 
 script.
   const GLOBAL_CONFIG = {
@@ -124,6 +120,5 @@ script.
     },
     isPhotoFigcaption: !{theme.photofigcaption},
     islazyload: !{theme.lazyload.enable},
-    isAnchor: !{theme.anchor},
-    weather: !{weather}
+    isAnchor: !{theme.anchor}
   }

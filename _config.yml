@@ -30,7 +30,6 @@ copy:
 
 # 天气预报
 weather:
-  enable: true
   use: weather
   weather:
     widget: 'WIDGET = {CONFIG:{"modules":"01234","background":5,"tmpColor":"ACACAC","tmpSize":"14","cityColor":"ACACAC","citySize":"14","aqiSize":"14","weatherIconSize":"20","alertIconSize":"14","padding":"10px 10px 10px 10px","shadow":"0","language":"auto","fixed":"true","vertical":"middle","horizontal":"center","left":0,"top":0,"key":"eHHSl54dDM"}}'
@@ -864,6 +863,3 @@ CDN:
   prismjs_js:
   prismjs_lineNumber_js:
   prismjs_autoloader:
-
-  # weather
-  weather:

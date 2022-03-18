@@ -7,7 +7,9 @@
   "allOf": [
     {"$ref": "./share.json"},
     {"$ref": "./comment.json"},
-    {"$ref": "./chat.json"}
+    {"$ref": "./chat.json"},
+    {"$ref": "./code.json"},
+    {"$ref": "./weather.json"}
   ],
   "definitions": {},
   "properties": {
@@ -44,52 +46,6 @@
       ],
       "default": null
     },
-    "highlight_theme": {
-      "description": "Code highlight style",
-      "enum": [
-        "darker",
-        "plae night",
-        "light",
-        "ocean",
-        "mac",
-        "mac light",
-        false
-      ],
-      "default": "light"
-    },
-    "highlight_copy": {
-      "description": "Determine whether show copy menu on code block",
-      "type": "boolean",
-      "default": true
-    },
-    "highlight_lang": {
-      "description": "Determine whether show the code language",
-      "type": "boolean",
-      "default": true
-    },
-    "highlight_shrink": {
-      "description": "Determine whether shrink the code block or expand.\ntrue: shrink;\nfalse: expand;\nnull: expand and hide this button.",
-      "default": false,
-      "enum": [
-        true,
-        false,
-        null
-      ]
-    },
-    "highlight_height_limit": {
-      "description": "Set code block height(px), set to false if unlimit.",
-      "type": [
-        "number",
-        "boolean"
-      ],
-      "default": false,
-      "minimum": 0
-    },
-    "code_word_wrap": {
-      "description": "Wrap the line if too long in code block.",
-      "type": "boolean",
-      "default": false
-    },
     "copy": {
       "description": "Settings when coping.",
       "type": "object",
@@ -115,95 +71,6 @@
               "minimum": 0
             }
           }
-        }
-      }
-    },
-    "weather": {
-      "description": "Weather widget settings",
-      "type": "object",
-      "if": {
-        "properties": {
-          "enable": {
-            "const": true
-          }
-        }
-      },
-      "then": {
-        "required": [
-          "use"
-        ],
-        "if": {
-          "properties": {
-            "plugin": {
-              "const": "weather"
-            }
-          }
-        },
-        "then": {
-          "required": [
-            "weather"
-          ]
-        },
-        "else": {
-          "if": {
-            "properties": {
-              "plugin": {
-                "const": "qweather"
-              }
-            }
-          },
-          "then": {
-            "required": [
-              "qweather"
-            ]
-          }
-        }
-      },
-      "properties": {
-        "enable": {
-          "description": "Determine whether show weather widget in navbar.",
-          "type": "boolean",
-          "default": true
-        },
-        "use": {
-          "description": "Set weather widget type.",
-          "enum": [
-            "weather",
-            "qweather"
-          ],
-          "default": "qweather"
-        },
-        "weather": {
-          "description": "Weather widget(weather) settings.\nsee more: https://cj.weather.com.cn/plugin/simple",
-          "type": "object",
-          "properties": {
-            "widget": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "description": "WIDGET generated."
-            }
-          },
-          "required": [
-            "widget"
-          ]
-        },
-        "qweather": {
-          "description": "Weather widget(qweather) settings.\n see more: https://widget.qweather.com/create-simple/",
-          "type": "object",
-          "properties": {
-            "widget": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "description": "WIDGET generated."
-            }
-          },
-          "required": [
-            "widget"
-          ]
         }
       }
     },
