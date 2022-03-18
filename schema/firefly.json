@@ -130,7 +130,7 @@
       },
       "then": {
         "required": [
-          "plugin"
+          "use"
         ],
         "if": {
           "properties": {
@@ -165,7 +165,7 @@
           "type": "boolean",
           "default": true
         },
-        "plugin": {
+        "use": {
           "description": "Set weather widget type.",
           "enum": [
             "weather",
