@@ -65,7 +65,7 @@
       ],
       "properties": {
         "use": {
-          "description": "Set weather widget type.",
+          "description": "Avaliable weather plugin.",
           "default": "qweather"
         }
       }
