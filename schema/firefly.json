@@ -11,7 +11,8 @@
     {"$ref": "./code.json"},
     {"$ref": "./weather.json"},
     {"$ref": "./search.json"},
-    {"$ref": "./analytics.json"}
+    {"$ref": "./analytics.json"},
+    {"$ref": "./aside.json"}
   ],
   "definitions": {},
   "properties": {
