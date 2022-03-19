@@ -1,6 +1,7 @@
 nav#nav
   span#blog_name
-    a#site-name.pull-left(href=url_for('/')) #[=config.title]
+    a#site-name.pull-left(href=url_for('/'))
+      span.pull-left(style='margin-right: 30px') #[=config.title]
       !=partial('includes/third-party/weather/index', {}, {cache: true})
 
   #menus

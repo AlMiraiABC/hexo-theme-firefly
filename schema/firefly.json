@@ -10,7 +10,8 @@
     {"$ref": "./chat.json"},
     {"$ref": "./code.json"},
     {"$ref": "./weather.json"},
-    {"$ref": "./search.json"}
+    {"$ref": "./search.json"},
+    {"$ref": "./analytics.json"}
   ],
   "definitions": {},
   "properties": {

@@ -1,18 +1,18 @@
 link(rel="preconnect" href="//cdn.jsdelivr.net")
 
-if theme.google_analytics
+if theme.analytics.google
   link(rel="preconnect" href="//www.google-analytics.com" crossorigin='')
 
-if theme.baidu_analytics
+if theme.analytics.baidu
   link(rel="preconnect" href="//hm.baidu.com")
 
-if theme.cnzz_analytics
+if theme.analytics.umeng
   link(rel="preconnect" href="//s4.cnzz.com")
 
-if theme.cloudflare_analytics
+if theme.analytics.cloudflare
   link(rel="preconnect" href="//static.cloudflareinsights.com")
 
-if theme.microsoft_clarity
+if theme.analytics.clarity
   link(rel="preconnect" href="//www.clarity.ms")
 
 if theme.blog_title_font && theme.blog_title_font.font_link && theme.blog_title_font.font_link.indexOf('//fonts.googleapis.com') != -1
