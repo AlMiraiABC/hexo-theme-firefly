@@ -30,7 +30,7 @@ copy:
 
 # 天气预报
 weather:
-  use: weather
+  use: qweather
   weather:
     widget: 'WIDGET = {CONFIG:{"modules":"01234","background":5,"tmpColor":"ACACAC","tmpSize":"14","cityColor":"ACACAC","citySize":"14","aqiSize":"14","weatherIconSize":"20","alertIconSize":"14","padding":"10px 10px 10px 10px","shadow":"0","language":"auto","fixed":"true","vertical":"middle","horizontal":"center","left":0,"top":0,"key":"eHHSl54dDM"}}'
   qweather:
@@ -40,13 +40,12 @@ social:
   # fab fa-github: https://github.com/xxxxx || Github
   # fas fa-envelope: mailto:xxxxxx@gmail.com || Email
 
-algolia_search:
-  enable: false
-  hits:
-    per_page: 6
-
-local_search:
-  enable: false
+search:
+  use: local
+  algolia:
+    hits:
+      per_page: 6
+  local:
 
 mathjax:
   enable: false

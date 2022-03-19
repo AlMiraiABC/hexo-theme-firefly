@@ -9,7 +9,8 @@
     {"$ref": "./comment.json"},
     {"$ref": "./chat.json"},
     {"$ref": "./code.json"},
-    {"$ref": "./weather.json"}
+    {"$ref": "./weather.json"},
+    {"$ref": "./search.json"}
   ],
   "definitions": {},
   "properties": {
@@ -92,40 +93,6 @@
         "fas fa-envelope: mailto:xxxxxx@gmail.com || Email"
       ],
       "default": null
-    },
-    "algolia_search": {
-      "description": "Algolia settings.",
-      "type": "object",
-      "properties": {
-        "enable": {
-          "description": "Determine whether using algolia search.",
-          "type": "boolean",
-          "default": false
-        },
-        "hits": {
-          "description": "Search options.",
-          "type": "object",
-          "properties": {
-            "per_page": {
-              "description": "Result count per page.",
-              "type": "number",
-              "default": 6,
-              "minimum": 1
-            }
-          }
-        }
-      }
-    },
-    "local_search": {
-      "description": "Local search settings.",
-      "type": "object",
-      "properties": {
-        "enable": {
-          "type": "boolean",
-          "default": false,
-          "description": "Determine whether using local search."
-        }
-      }
     },
     "mathjax": {
       "description": "MathJax settings.",
