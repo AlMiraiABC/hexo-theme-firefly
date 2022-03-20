@@ -1,6 +1,6 @@
-script(src=`//code.tidio.co/${theme.tidio.public_key}.js` async)
+script(src=`//code.tidio.co/${theme.chat.tidio.public_key}.js` async)
 
-if theme.chat_btn
+if theme.chat.button
   script.
     function onTidioChatApiReady() {
       window.tidioChatApi.hide();
@@ -22,7 +22,7 @@ if theme.chat_btn
     }
     chatBtnFn()
 
-else if theme.chat_hide_show
+else if theme.chat.auto_hide
   script.
     function chatBtnHide () {
       if (window.tidioChatApi) {
@@ -35,7 +35,5 @@ else if theme.chat_hide_show
       if (window.tidioChatApi) {
         //- window.tidioChatApi.show();
         document.getElementById('tidio-chat').style.display= 'block'
-      } 
+      }
     }
-
-

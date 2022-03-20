@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/product.schema.json",
+  "title": "_config.firefly.yml -analytics",
+  "description": "Sub JSON schema for hexo-theme-firefly analytics plugins.",
+  "type": "object",
+  "properties": {
+    "analytics": {
+      "description": "Analytics settings.",
+      "type": "object",
+      "properties": {
+        "baidu": {
+          "description": "Baidu tongji.\nsee more: https://tongji.baidu.com/",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "google": {
+          "description": "Google analytics.\nsee more: https://analytics.google.com/",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "umeng": {
+          "description": "UMeng(cnzz) analytics.\nsee more: https://www.umeng.com/",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "cloudflare": {
+          "description": "Cloudflare analytics.\nsee more: https://www.cloudflare.com/zh-cn/web-analytics/",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "clarity": {
+          "description": "Microsoft clarity analytics.\nsee more: https://clarity.microsoft.com/",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  }
+}

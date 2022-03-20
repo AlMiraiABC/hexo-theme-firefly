@@ -1,4 +1,4 @@
-if theme.chat_btn
+if theme.chat.button
   script.
     ((window.gitter = {}).chat = {}).options = {
       disableDefaultChat: true,
@@ -9,7 +9,7 @@ if theme.chat_btn
 
       function initGitter () {
         chat = new GitterChat({
-          room: '#{theme.gitter.room}',
+          room: '#{theme.chat.gitter.room}',
           activationElement: '#chat_btn'
         });
       }
@@ -27,10 +27,10 @@ if theme.chat_btn
 else
   script.
     ((window.gitter = {}).chat = {}).options = {
-      room: '#{theme.gitter.room}',
+      room: '#{theme.chat.gitter.room}',
     };
 
-    if (!{theme.chat_hide_show}) {
+    if (!{theme.chat.auto_hide}) {
       function chatBtnHide () {
         document.getElementsByClassName('gitter-open-chat-button')[0].style.display= 'none'
       }

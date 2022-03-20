@@ -1,0 +1,151 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/product.schema.json",
+  "title": "_config.firefly.yml -chat",
+  "description": "Sub JSON schema for hexo-theme-firefly chat module.",
+  "type": "object",
+  "properties": {
+    "chat": {
+      "description": "Chat module manage settings.",
+      "type": "object",
+      "properties": {
+        "button": {
+          "description": "Determine whether display chat button on right-bottom corner, it will hide the origin set button.",
+          "type": "boolean",
+          "default": false
+        },
+        "auto_hide": {
+          "description": "Determine whether auto hide chat button when scrolling down.",
+          "type": "boolean",
+          "default": false
+        },
+        "use": {
+          "description": "Avaliable chat plugin.",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "oneOf": [
+        {
+          "properties": {
+            "use": {
+              "const": "chatra"
+            },
+            "chatra": {
+              "description": "Chatra chat plugin.\nsee more: https://chatra.io/",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id"
+              ]
+            }
+          },
+          "required": [
+            "chatra"
+          ]
+        },
+        {
+          "properties": {
+            "use": {
+              "const": "tidio"
+            },
+            "tidio": {
+              "description": "Tidio chat plugin.\nsee more: https://www.tidio.com/",
+              "type": "object",
+              "properties": {
+                "public_key": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "public_key"
+              ]
+            }
+          },
+          "required": [
+            "tidio"
+          ]
+        },
+        {
+          "properties": {
+            "use": {
+              "const": "daovoice"
+            },
+            "daovoice": {
+              "description": "DaoVoice chat plugin.\nsee more: http://guide.daocloud.io/daovoice",
+              "type": "object",
+              "properties": {
+                "app_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "app_id"
+              ]
+            }
+          },
+          "required": [
+            "daovoice"
+          ]
+        },
+        {
+          "properties": {
+            "use": {
+              "const": "gitter"
+            },
+            "gitter": {
+              "type": "object",
+              "description": "Gitter chat plugin.\nsee more: https://gitter.im/",
+              "properties": {
+                "room": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "room"
+              ]
+            }
+          },
+          "required": [
+            "gitter"
+          ]
+        },
+        {
+          "properties": {
+            "use": {
+              "const": "crisp"
+            },
+            "crisp": {
+              "type": "object",
+              "description": "Crisp chat plugin.\nsee more: https://crisp.chat/",
+              "properties": {
+                "website_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "website_id"
+              ]
+            }
+          },
+          "required": [
+            "crisp"
+          ]
+        },
+        {
+          "properties": {
+            "use":{
+              "const":null
+            }
+          }
+        }
+      ]
+    }
+  }
+}

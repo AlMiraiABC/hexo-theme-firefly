@@ -1,0 +1,115 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/product.schema.json",
+  "title": "_config.firefly.yml -share",
+  "description": "Sub JSON schema for hexo-theme-firefly share plugins.",
+  "type": "object",
+  "properties": {
+    "share": {
+      "description": "Share manage settings.",
+      "type": "object",
+      "oneOf": [
+        {
+          "properties": {
+            "use": {
+              "const": "addThis"
+            },
+            "addThis": {
+              "description": "AddThis share plugin.\nsee more: https://www.addthis.com/",
+              "type": "object",
+              "properties": {
+                "pubid": {
+                  "description": "",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "pubid"
+              ]
+            }
+          },
+          "required": [
+            "addThis"
+          ]
+        },
+        {
+          "properties": {
+            "use": {
+              "const": "sharejs"
+            },
+            "sharejs": {
+              "description": "Share.js share plugin.\nsee more: https://github.com/overtrue/share.js",
+              "type": "object",
+              "properties": {
+                "sites": {
+                  "description": "Sites shared to.",
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "weibo",
+                      "qq",
+                      "wechat",
+                      "douban",
+                      "qzone",
+                      "linkedin",
+                      "facebook",
+                      "twitter",
+                      "google"
+                    ]
+                  },
+                  "uniqueItems": true
+                }
+              },
+              "required": [
+                "sites"
+              ]
+            }
+          },
+          "required": [
+            "sharejs"
+          ]
+        },
+        {
+          "properties": {
+            "use": {
+              "const": "addtoany"
+            },
+            "addtoany": {
+              "description": "AddToAny share plugin.\nsee more: https://www.addtoany.com/",
+              "type": "object",
+              "properties": {
+                "sites": {
+                  "type": "array",
+                  "description": "Sites shared to.",
+                  "items": {
+                    "type": "string"
+                  },
+                  "uniqueItems": true
+                }
+              }
+            }
+          },
+          "required": [
+            "addtoany"
+          ]
+        },
+        {
+          "properties": {
+            "use": {
+              "const": null
+            }
+          }
+        }
+      ],
+      "properties": {
+        "use": {
+          "description": "Avaliable share plugin.",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  }
+}

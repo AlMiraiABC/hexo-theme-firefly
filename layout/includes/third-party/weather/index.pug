@@ -1,0 +1,6 @@
+span#weather.pull-left
+  case theme.weather.use
+    when 'weather'
+      !=partial('includes/third-party/weather/weather', {}, {cache: true})
+    when 'qweather'
+      !=partial('includes/third-party/weather/qweather', {}, {cache: true})

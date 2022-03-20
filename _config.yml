@@ -1,7 +1,5 @@
-# yaml-language-server: $schema=./firefly-schema.json
-
+# yaml-language-server: $schema=./schema/firefly.json
 ---
-
 # Main menu navigation (導航目錄)
 # see https://butterfly.js.org/posts/4aa8abbe/#導航菜單
 # --------------------------------------
@@ -32,8 +30,7 @@ copy:
 
 # 天气预报
 weather:
-  enable: true
-  plugin: weather
+  use: qweather
   weather:
     widget: 'WIDGET = {CONFIG:{"modules":"01234","background":5,"tmpColor":"ACACAC","tmpSize":"14","cityColor":"ACACAC","citySize":"14","aqiSize":"14","weatherIconSize":"20","alertIconSize":"14","padding":"10px 10px 10px 10px","shadow":"0","language":"auto","fixed":"true","vertical":"middle","horizontal":"center","left":0,"top":0,"key":"eHHSl54dDM"}}'
   qweather:
@@ -43,13 +40,12 @@ social:
   # fab fa-github: https://github.com/xxxxx || Github
   # fas fa-envelope: mailto:xxxxxx@gmail.com || Email
 
-algolia_search:
-  enable: false
-  hits:
-    per_page: 6
-
-local_search:
-  enable: false
+search:
+  use: local
+  algolia:
+    hits:
+      per_page: 6
+  local:
 
 mathjax:
   enable: false
@@ -204,23 +200,23 @@ noticeOutdate:
 # Share System (分享功能)
 # --------------------------------------
 
-# AddThis
-# https://www.addthis.com/
-addThis:
-  enable: false
-  pubid:
-
-# Share.js
-# https://github.com/overtrue/share.js
-sharejs:
-  enable: true
-  sites: facebook,twitter,wechat,weibo,qq
-
-# AddToAny
-# https://www.addtoany.com/
-addtoany:
-  enable: false
-  item: facebook,twitter,wechat,sina_weibo,facebook_messenger,email,copy_link
+share:
+  use: sharejs
+  addThis:
+    pubid:
+  sharejs:
+    sites: [facebook, twitter, wechat, weibo, qq]
+  addtoany:
+    sites:
+      [
+        facebook,
+        twitter,
+        wechat,
+        sina_weibo,
+        facebook_messenger,
+        email,
+        copy_link,
+      ]
 
 # Comments System
 # --------------------------------------
@@ -322,45 +318,20 @@ giscus:
     dark: dark
   option:
 
-# Chat Services
-# --------------------------------------
-
-# Chat Button [recommend]
-# It will create a button in the bottom right corner of website, and hide the origin button
-chat_btn: false
-
-# The origin chat button is displayed when scrolling up, and the button is hidden when scrolling down
-chat_hide_show: false
-
-# chatra
-# https://chatra.io/
-chatra:
-  enable: false
-  id:
-
-# tidio
-# https://www.tidio.com/
-tidio:
-  enable: false
-  public_key:
-
-# daovoice
-# http://daovoice.io/
-daovoice:
-  enable: false
-  app_id:
-
-# gitter
-# https://gitter.im/
-gitter:
-  enable: false
-  room:
-
-# crisp
-# https://crisp.chat/en/
-crisp:
-  enable: false
-  website_id:
+chat:
+  button: false
+  auto_hide: false
+  use:
+  chatra:
+    id:
+  tidio:
+    public_key:
+  daovoice:
+    app_id:
+  gitter:
+    room:
+  crisp:
+    website_id:
 
 # Footer Settings
 # --------------------------------------
@@ -377,28 +348,12 @@ footer:
     icon: /img/icp.png
   copyright: true # Copyright of theme and framework
 
-# Analysis
-# --------------------------------------
-
-# Baidu Analytics
-# https://tongji.baidu.com/web/welcome/login
-baidu_analytics:
-
-# Google Analytics
-# https://analytics.google.com/analytics/web/
-google_analytics:
-
-# CNZZ Analytics
-# https://www.umeng.com/
-cnzz_analytics:
-
-# Cloudflare Analytics
-# https://www.cloudflare.com/zh-tw/web-analytics/
-cloudflare_analytics:
-
-# Microsoft Clarity
-# https://clarity.microsoft.com/
-microsoft_clarity:
+analytics:
+  baidu:
+  google:
+  umeng:
+  cloudflare:
+  clarity:
 
 # Advertisement
 # --------------------------------------
@@ -798,7 +753,7 @@ css_prefix: true
 # 插入代码到头部 </head> 之前 和 底部 </body> 之前
 inject:
   head:
-    # - <link rel="stylesheet" href="/xxx.css">
+  # - <link rel="stylesheet" href="/xxx.css">
   bottom:
     # - <script src="xxxx"></script>
 
@@ -891,6 +846,3 @@ CDN:
   prismjs_js:
   prismjs_lineNumber_js:
   prismjs_autoloader:
-
-  # weather
-  weather:

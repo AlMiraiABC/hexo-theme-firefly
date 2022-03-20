@@ -4,6 +4,16 @@
   "title": "_config.firefly.yml",
   "description": "JSON schema for hexo-theme-firefly",
   "type": "object",
+  "allOf": [
+    {"$ref": "./share.json"},
+    {"$ref": "./comment.json"},
+    {"$ref": "./chat.json"},
+    {"$ref": "./code.json"},
+    {"$ref": "./weather.json"},
+    {"$ref": "./search.json"},
+    {"$ref": "./analytics.json"},
+    {"$ref": "./aside.json"}
+  ],
   "definitions": {},
   "properties": {
     "menu": {
@@ -39,52 +49,6 @@
       ],
       "default": null
     },
-    "highlight_theme": {
-      "description": "Code highlight style",
-      "enum": [
-        "darker",
-        "plae night",
-        "light",
-        "ocean",
-        "mac",
-        "mac light",
-        false
-      ],
-      "default": "light"
-    },
-    "highlight_copy": {
-      "description": "Determine whether show copy menu on code block",
-      "type": "boolean",
-      "default": true
-    },
-    "highlight_lang": {
-      "description": "Determine whether show the code language",
-      "type": "boolean",
-      "default": true
-    },
-    "highlight_shrink": {
-      "description": "Determine whether shrink the code block or expand.\ntrue: shrink;\nfalse: expand;\nnull: expand and hide this button.",
-      "default": false,
-      "enum": [
-        true,
-        false,
-        null
-      ]
-    },
-    "highlight_height_limit": {
-      "description": "Set code block height(px), set to false if unlimit.",
-      "type": [
-        "number",
-        "boolean"
-      ],
-      "default": false,
-      "minimum": 0
-    },
-    "code_word_wrap": {
-      "description": "Wrap the line if too long in code block.",
-      "type": "boolean",
-      "default": false
-    },
     "copy": {
       "description": "Settings when coping.",
       "type": "object",
@@ -113,95 +77,6 @@
         }
       }
     },
-    "weather": {
-      "description": "Weather widget settings",
-      "type": "object",
-      "if": {
-        "properties": {
-          "enable": {
-            "const": true
-          }
-        }
-      },
-      "then": {
-        "required": [
-          "plugin"
-        ],
-        "if": {
-          "properties": {
-            "plugin": {
-              "const": "weather"
-            }
-          }
-        },
-        "then": {
-          "required": [
-            "weather"
-          ]
-        },
-        "else": {
-          "if": {
-            "properties": {
-              "plugin": {
-                "const": "qweather"
-              }
-            }
-          },
-          "then": {
-            "required": [
-              "qweather"
-            ]
-          }
-        }
-      },
-      "properties": {
-        "enable": {
-          "description": "Determine whether show weather widget in navbar.",
-          "type": "boolean",
-          "default": true
-        },
-        "plugin": {
-          "description": "Set weather widget type.",
-          "enum": [
-            "weather",
-            "qweather"
-          ],
-          "default": "qweather"
-        },
-        "weather": {
-          "description": "Weather widget(weather) settings.\nsee more: https://cj.weather.com.cn/plugin/simple",
-          "type": "object",
-          "properties": {
-            "widget": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "description": "WIDGET generated."
-            }
-          },
-          "required": [
-            "widget"
-          ]
-        },
-        "qweather": {
-          "description": "Weather widget(qweather) settings.\n see more: https://widget.qweather.com/create-simple/",
-          "type": "object",
-          "properties": {
-            "widget": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "description": "WIDGET generated."
-            }
-          },
-          "required": [
-            "widget"
-          ]
-        }
-      }
-    },
     "social": {
       "description": "Social network accounts.\n{icon}:{link}||{description}",
       "type": [
@@ -220,40 +95,6 @@
         "fas fa-envelope: mailto:xxxxxx@gmail.com || Email"
       ],
       "default": null
-    },
-    "algolia_search": {
-      "description": "Algolia settings.",
-      "type": "object",
-      "properties": {
-        "enable": {
-          "description": "Determine whether using algolia search.",
-          "type": "boolean",
-          "default": false
-        },
-        "hits": {
-          "description": "Search options.",
-          "type": "object",
-          "properties": {
-            "per_page": {
-              "description": "Result count per page.",
-              "type": "number",
-              "default": 6,
-              "minimum": 1
-            }
-          }
-        }
-      }
-    },
-    "local_search": {
-      "description": "Local search settings.",
-      "type": "object",
-      "properties": {
-        "enable": {
-          "type": "boolean",
-          "default": false,
-          "description": "Determine whether using local search."
-        }
-      }
     },
     "mathjax": {
       "description": "MathJax settings.",
@@ -694,6 +535,142 @@
           "description": "URL for post license.",
           "type": "string",
           "default": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+        }
+      }
+    },
+    "reward": {
+      "description": "Sponsors or rewards settings.",
+      "type": "object",
+      "properties": {
+        "enable": {
+          "description": "Determinw whether show reward button.",
+          "type": "boolean",
+          "default": false
+        },
+        "QR_code": {
+          "description": "Reward ways.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "object",
+            "properties": {
+              "img": {
+                "description": "Image URL to reward. A QR code generally.",
+                "type": "string",
+                "examples": [
+                  "/path/to/alipay/receiving_code"
+                ]
+              },
+              "link": {
+                "description": "Image href to reward. A payment link generally.",
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "examples": [
+                  "/path/to/payment/link"
+                ]
+              },
+              "text": {
+                "type": "string",
+                "description": "Image description.",
+                "examples": [
+                  "alipay",
+                  "wechat"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "related_post": {
+      "description": "Post recommend settings.",
+      "type": "object",
+      "properties": {
+        "enable": {
+          "description": "Determine whether show related posts under post.",
+          "type": "boolean",
+          "default": true
+        },
+        "limit": {
+          "description": "Count number of related posts.",
+          "type": "number",
+          "default": 6,
+          "minimum": 0
+        },
+        "date_type": {
+          "description": "Date mode related post shown.",
+          "type": "string",
+          "enum": [
+            "created",
+            "updated"
+          ],
+          "default": "created"
+        }
+      }
+    },
+    "photofigcaption": {
+      "description": "Determine whether show photos and figures description.",
+      "type": "boolean",
+      "default": false
+    },
+    "post_pagination": {
+      "description": "Pagination settings under post.",
+      "type": [
+        "boolean",
+        "number"
+      ],
+      "enum": [
+        1,
+        2,
+        false
+      ],
+      "default": 1
+    },
+    "noticeOutdate": {
+      "description": "Outdated notification settings.",
+      "type": "object",
+      "properties": {
+        "enable": {
+          "description": "Determine whether show outdated notification.",
+          "type": "boolean",
+          "default": false
+        },
+        "style": {
+          "description": "Notification style.",
+          "type": "string",
+          "enum": [
+            "simple",
+            "flat"
+          ],
+          "default": "flat"
+        },
+        "limit_day": {
+          "description": "Expired days",
+          "type": "number",
+          "default": 500
+        },
+        "position": {
+          "description": "Notification position.",
+          "type": "string",
+          "enum": [
+            "top",
+            "bottom"
+          ],
+          "default": "top"
+        },
+        "message_prev": {
+          "description": "Prefix for notification message.",
+          "type": "string",
+          "default": "It has been"
+        },
+        "message_next": {
+          "description": "Suffix for notification message.",
+          "type": "string",
+          "default": "days since the last update, the content of the article may be outdated."
         }
       }
     }
