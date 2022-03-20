@@ -3,7 +3,11 @@ orbs:
   node: circleci/node@5.0.1
 
 workflows:
-    coding-publisher:
+    npm-publisher:
       jobs:
         - node/run:
             yarn-run: publish
+    # coding-publisher:
+    #   jobs:
+    #     - coding/npm:
+    #         publish:
