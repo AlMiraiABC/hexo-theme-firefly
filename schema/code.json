@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/product.schema.json",
+  "title": "_config.firefly.yml -code",
+  "description": "Sub JSON schema for hexo-theme-firefly code settings.",
+  "type": "object",
+  "properties": {
+    "highlight_theme": {
+      "description": "Code highlight style",
+      "enum": [
+        "darker",
+        "plae night",
+        "light",
+        "ocean",
+        "mac",
+        "mac light",
+        false
+      ],
+      "default": "light"
+    },
+    "highlight_copy": {
+      "description": "Determine whether show copy menu on code block",
+      "type": "boolean",
+      "default": true
+    },
+    "highlight_lang": {
+      "description": "Determine whether show the code language",
+      "type": "boolean",
+      "default": true
+    },
+    "highlight_shrink": {
+      "description": "Determine whether shrink the code block or expand.\ntrue: shrink;\nfalse: expand;\nnull: expand and hide this button.",
+      "default": false,
+      "enum": [
+        true,
+        false,
+        null
+      ]
+    },
+    "highlight_height_limit": {
+      "description": "Set code block height(px), set to false if unlimit.",
+      "type": [
+        "number",
+        "boolean"
+      ],
+      "default": false,
+      "minimum": 0
+    },
+    "code_word_wrap": {
+      "description": "Wrap the line if too long in code block.",
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

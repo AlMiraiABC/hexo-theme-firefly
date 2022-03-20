@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/product.schema.json",
+  "title": "_config.firefly.yml -share",
+  "description": "Sub JSON schema for hexo-theme-firefly share plugins.",
+  "type": "object",
+  "if": {
+    "properties": {
+      "comment": {
+        "use": {
+          "const": "Disqus"
+        }
+      }
+    }
+  },
+  "then": {
+    "$comment": "props cannot be null or empty",
+    "required": [
+      "disqus"
+    ]
+  },
+  "properties": {
+    "comments": {
+      "description": "Comments settings.",
+      "type": "object",
+      "properties": {
+        "use": {
+          "description": "Avaliable comments system.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "enum": [
+              "Disqus",
+              "Disqusjs",
+              "Livere",
+              "Gitalk",
+              "Valine",
+              "Waline",
+              "Utterances",
+              "Facebook Comments",
+              "Twikoo",
+              "Giscus"
+            ]
+          },
+          "maxItems": 2
+        },
+        "text": {
+          "description": "Determine whether display the name of comment system.",
+          "type": "boolean",
+          "default": true
+        },
+        "lazyload": {
+          "description": "Determine whether lazyload comment system.\nNOTE: count will be invalid if lazyload is true.",
+          "type": "boolean",
+          "default": false
+        },
+        "count": {
+          "description": "Determine whether display comment count of post on top.\nCannot be true if lazyload is true.",
+          "type": "boolean",
+          "default": false
+        },
+        "card_post_count": {
+          "description": "Determine whether display comment count of post on home page.",
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "if": {
+        "properties": {
+          "lazyload": {
+            "const": true
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "count": {
+            "not": {
+              "const": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,280 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/product.schema.json",
+  "title": "_config.firefly.yml -aside",
+  "description": "Sub JSON schema for hexo-theme-firefly aside blocks.",
+  "type": "object",
+  "definitions": {
+    "sort_order": {
+      "description": "Index of aside cards.\nsee more: https://developer.mozilla.org/en-US/docs/web/css/order",
+      "type": [
+        "number",
+        "null",
+        "string"
+      ],
+      "default": 0,
+      "if": {
+        "type": "string"
+      },
+      "then": {
+        "enum": [
+          "inherit",
+          "initial",
+          "revert",
+          "unset"
+        ]
+      }
+    },
+    "limit": {
+      "description": "Display count number.\n0 to unlimit and show all.",
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "enable": {
+      "description": "Determine whether display this aside card.",
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "properties": {
+    "aside": {
+      "description": "Aside cards settings.",
+      "type": "object",
+      "properties": {
+        "enable": {
+          "$ref": "#/definitions/enable"
+        },
+        "hide": {
+          "type": "boolean",
+          "default": false
+        },
+        "button": {
+          "type": "boolean",
+          "default": true
+        },
+        "mobile": {
+          "type": "boolean",
+          "description": "Determine whether display asides on mobile.",
+          "default": true
+        },
+        "position": {
+          "type": "string",
+          "description": "Asides position.",
+          "enum": [
+            "left",
+            "right"
+          ],
+          "default": "right"
+        },
+        "card_author": {
+          "description": "Author aside card settings.",
+          "type": "object",
+          "properties": {
+            "enable": {
+              "$ref": "#/definitions/enable"
+            },
+            "description": {
+              "description": "Author's description.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "button": {
+              "description": "Button settings at bottom of author card.",
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "description": "Determine whether display this button.",
+                  "type": "boolean",
+                  "default": true
+                },
+                "icon": {
+                  "description": "Icon on this button.",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "default": "fab fa-github"
+                },
+                "text": {
+                  "description": "Text on this button.",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "default": "Follow Me"
+                },
+                "link": {
+                  "description": "Button href when clicked.",
+                  "default": "https://github.com/",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "card_announcement": {
+          "description": "Announcement aside card settings.",
+          "type": "object",
+          "properties": {
+            "enable": {
+              "$ref": "#/definitions/enable"
+            },
+            "content": {
+              "description": "Announce message.",
+              "type": [
+                "string",
+                "null"
+              ],
+              "default": "This is my Blog"
+            }
+          }
+        },
+        "card_recent_post": {
+          "description": "Recent posts aside card settings.",
+          "type": "object",
+          "properties": {
+            "enable": {
+              "$ref": "#/definitions/enable"
+            },
+            "limit": {
+              "$ref": "#/definitions/limit",
+              "default": 5
+            },
+            "sort": {
+              "description": "Props sort by.",
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "date",
+                "updated",
+                null
+              ],
+              "default": "date"
+            },
+            "sort_order": {
+              "$ref": "#/definitions/sort_order"
+            }
+          }
+        },
+        "card_categories": {
+          "description": "Categories list aside card settings.",
+          "type": "object",
+          "properties": {
+            "enable": {
+              "$ref": "#/definitions/enable"
+            },
+            "limit": {
+              "$ref": "#/definitions/limit",
+              "default": 8
+            },
+            "expand": {
+              "enum": [
+                "none",
+                true,
+                false,
+                null
+              ],
+              "default": "none"
+            },
+            "sort_order": {
+              "$ref": "#/definitions/sort_order"
+            }
+          }
+        },
+        "card_tags": {
+          "description": "Tags list aside card settings.",
+          "type": "object",
+          "properties": {
+            "enable": {
+              "$ref": "#/definitions/enable"
+            },
+            "limit": {
+              "$ref": "#/definitions/limit",
+              "default": 40
+            },
+            "color": {
+              "description": "Determinw whether display tags colorful.",
+              "type": "boolean",
+              "default": false
+            },
+            "sort_order": {
+              "$ref": "#/definitions/sort_order"
+            }
+          }
+        },
+        "card_archives": {
+          "description": "Archives aside card settings.",
+          "type": "object",
+          "properties": {
+            "enable": {
+              "$ref": "#/definitions/enable"
+            },
+            "limit": {
+              "$ref": "#/definitions/limit"
+            },
+            "type": {
+              "description": "Archive posts classify in.",
+              "type": "string",
+              "enum": [
+                "monthly",
+                "yearly"
+              ],
+              "default": "monthly"
+            },
+            "format": {
+              "description": "Date format of classification.",
+              "type": [
+                "string",
+                "null"
+              ],
+              "default": "MMMM YYYY"
+            },
+            "order": {
+              "description": "Determine whether to sort archive posts in ascending or descending.\n1: ascending;\n-1: descending;",
+              "type": "number",
+              "enum": [
+                -1,
+                1
+              ],
+              "default": -1
+            },
+            "sort_order": {
+              "$ref": "#/definitions/sort_order"
+            }
+          }
+        },
+        "card_webinfo": {
+          "description": "Web info aside card settings.",
+          "type": "object",
+          "properties": {
+            "enable": {
+              "$ref": "#/definitions/enable"
+            },
+            "post_count": {
+              "description": "Determine whether display the count of posts.",
+              "type": "boolean",
+              "default": true
+            },
+            "last_push_date": {
+              "description": "Determine whether display last updated date.",
+              "type": "boolean",
+              "default": true
+            },
+            "sort_order": {
+              "$ref": "#/definitions/sort_order"
+            }
+          }
+        }
+      }
+    }
+  }
+}

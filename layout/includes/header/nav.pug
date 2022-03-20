@@ -1,0 +1,17 @@
+nav#nav
+  span#blog_name
+    a#site-name.pull-left(href=url_for('/'))
+      span.pull-left(style='margin-right: 30px') #[=config.title]
+      !=partial('includes/third-party/weather/index', {}, {cache: true})
+
+  #menus
+    if (theme.search.use)
+      #search-button
+        a.site-page.social-icon.search
+          i.fas.fa-search.fa-fw
+          span=' '+_p('search.title')
+    !=partial('includes/header/menu_item', {}, {cache: true})
+
+    #toggle-menu
+      a.site-page
+        i.fas.fa-bars.fa-fw

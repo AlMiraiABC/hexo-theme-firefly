@@ -1,0 +1,10 @@
+{
+    "conventionalCommits.scopes": [
+        "head",
+        "style",
+        "post",
+        "footer",
+        "config",
+        "plugin"
+    ]
+}

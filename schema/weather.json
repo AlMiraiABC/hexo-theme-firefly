@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/product.schema.json",
+  "title": "_config.firefly.yml -weather",
+  "description": "Sub JSON schema for hexo-theme-firefly weather plugins.",
+  "type": "object",
+  "properties": {
+    "weather": {
+      "description": "Weather widget settings",
+      "type": "object",
+      "oneOf": [
+        {
+          "properties": {
+            "use": {
+              "const": "weather"
+            },
+            "weather": {
+              "description": "Weather widget(weather) settings.\nsee more: https://cj.weather.com.cn/plugin/simple",
+              "type": "object",
+              "properties": {
+                "widget": {
+                  "type": "string",
+                  "description": "WIDGET generated."
+                }
+              },
+              "required": [
+                "widget"
+              ]
+            }
+          },
+          "required": [
+            "weather"
+          ]
+        },
+        {
+          "properties": {
+            "use": {
+              "const": "qweather"
+            },
+            "qweather": {
+              "description": "Weather widget(qweather) settings.\n see more: https://widget.qweather.com/create-simple/",
+              "type": "object",
+              "properties": {
+                "widget": {
+                  "type": "string",
+                  "description": "WIDGET generated."
+                }
+              },
+              "required": [
+                "widget"
+              ]
+            }
+          },
+          "required": [
+            "qweather"
+          ]
+        },
+        {
+          "properties": {
+            "use": {
+              "const": null
+            }
+          }
+        }
+      ],
+      "properties": {
+        "use": {
+          "description": "Avaliable weather plugin.",
+          "default": "qweather"
+        }
+      }
+    }
+  }
+}

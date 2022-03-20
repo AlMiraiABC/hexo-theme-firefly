@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/product.schema.json",
+  "title": "_config.firefly.yml -search",
+  "description": "Sub JSON schema for hexo-theme-firefly search plugins.",
+  "type": "object",
+  "properties": {
+    "search": {
+      "description": "Search settings.",
+      "type": "object",
+      "properties": {
+        "use": {
+          "description": "Avaliable search.",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "oneOf": [
+        {
+          "properties": {
+            "use": {
+              "const": "algolia"
+            },
+            "algolia": {
+              "description": "Algolia settings.",
+              "type": "object",
+              "properties": {
+                "hits": {
+                  "description": "Search options.",
+                  "type": "object",
+                  "properties": {
+                    "per_page": {
+                      "description": "Result count per page.",
+                      "type": "number",
+                      "default": 6,
+                      "minimum": 1
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "use": {
+              "const": "local"
+            },
+            "local": {
+              "description": "Local search settings.",
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {}
+            }
+          }
+        },
+        {
+          "properties": {
+            "use": {
+              "const": null
+            }
+          }
+        }
+      ]
+    }
+  }
+}

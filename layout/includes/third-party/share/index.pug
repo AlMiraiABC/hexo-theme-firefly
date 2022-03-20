@@ -1,0 +1,9 @@
+.post_share
+  - const use = (theme.share.use ? theme.share.use : '').toUpperCase()
+  case use
+    when 'ADDTHIS'
+      !=partial('includes/third-party/share/add-this', {}, {cache: true})
+    when 'SHAREJS'
+      include ./share-js.pug
+    when 'ADDTOANY'
+      !=partial('includes/third-party/share/addtoany', {}, {cache: true})

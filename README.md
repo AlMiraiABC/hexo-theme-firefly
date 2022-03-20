@@ -1,1 +1,1 @@
-# hexo theme firefly
+# hexo-theme-firefly
