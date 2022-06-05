@@ -332,6 +332,16 @@
             color: var(--font-color) !important
             text-shadow: none !important
 
+        .submenu
+          top: 0
+          right: 100%
+          display: none!important
+
+        &:hover
+          .submenu:first-child
+            display: block
+
+
   &.hide-menu
     #toggle-menu
       display: inline-block !important

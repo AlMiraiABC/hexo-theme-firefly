@@ -1,6 +1,6 @@
 {
     "name": "hexo-theme-firefly",
-    "version": "0.4.0-pre",
+    "version": "0.4.0-pre.1",
     "description": "A hexo theme based on hexo-theme-butterfly.",
     "main": "package.json",
     "scripts": {
